@@ -969,5 +969,148 @@
             </div>
         </footer>
     </div>
+    <!-- WIND IA Chat Widget -->
+<style>
+  #windia-chat-btn{
+    position:fixed; right:22px; bottom:22px; z-index:9999;
+    width:56px; height:56px; border-radius:999px;
+    border:1px solid rgba(255,255,255,.15);
+    background: linear-gradient(135deg, rgba(0,217,255,.95), rgba(0,102,255,.95));
+    box-shadow: 0 12px 30px rgba(0,217,255,.22);
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    color:#071022; font-weight:900; font-family:'Manrope', sans-serif;
+  }
+  #windia-chat-panel{
+    position:fixed; right:22px; bottom:90px; z-index:9999;
+    width:340px; height:480px; border-radius:18px;
+    background: rgba(10,14,26,.92);
+    border:1px solid rgba(0,217,255,.18);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 20px 70px rgba(0,0,0,.5);
+    display:none; overflow:hidden;
+    font-family:'Manrope', sans-serif;
+  }
+  #windia-chat-header{
+    padding:12px 14px;
+    display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  #windia-chat-header strong{
+    letter-spacing:.2px; font-size:14px;
+  }
+  #windia-chat-close{
+    background:transparent; border:0; color:#cbd5e1; cursor:pointer; font-size:18px;
+  }
+  #windia-chat-messages{
+    height: 368px; overflow:auto; padding:14px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .windia-msg{ max-width:82%; padding:10px 12px; border-radius:14px; line-height:1.35; font-size:14px; }
+  .windia-user{ align-self:flex-end; background: rgba(139,92,246,.16); border:1px solid rgba(139,92,246,.25); }
+  .windia-bot{ align-self:flex-start; background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); }
+  #windia-chat-input{
+    display:flex; gap:10px; padding:12px;
+    border-top:1px solid rgba(255,255,255,.08);
+    background: rgba(0,0,0,.15);
+  }
+  #windia-text{
+    flex:1; padding:10px 12px; border-radius:12px;
+    border:1px solid rgba(255,255,255,.12);
+    background: rgba(0,0,0,.20);
+    color:#fff; outline:none;
+  }
+  #windia-send{
+    padding:10px 12px; border-radius:12px; cursor:pointer;
+    border:1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.08);
+    color:#fff; font-weight:600;
+  }
+</style>
+
+<div id="windia-chat-btn" title="Chat">💬</div>
+
+<div id="windia-chat-panel">
+  <div id="windia-chat-header">
+    <strong>Asistente WIND IA</strong>
+    <button id="windia-chat-close" aria-label="Cerrar">×</button>
+  </div>
+  <div id="windia-chat-messages"></div>
+  <div id="windia-chat-input">
+    <input id="windia-text" placeholder="Escribí tu consulta..." autocomplete="off" />
+    <button id="windia-send">Enviar</button>
+  </div>
+</div>
+
+<script>
+  const WINDIA_WEBHOOK = "https://monstertrailarg.app.n8n.cloud/webhook/chatbot";
+
+  // Mantener sesión para memoria del bot
+  const KEY = "windia_session_id";
+  let sessionId = localStorage.getItem(KEY);
+  if (!sessionId) {
+    sessionId = "web-" + (crypto?.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2));
+    localStorage.setItem(KEY, sessionId);
+  }
+
+  const btn = document.getElementById("windia-chat-btn");
+  const panel = document.getElementById("windia-chat-panel");
+  const closeBtn = document.getElementById("windia-chat-close");
+  const msgs = document.getElementById("windia-chat-messages");
+  const text = document.getElementById("windia-text");
+  const sendBtn = document.getElementById("windia-send");
+
+  function addMsg(role, content){
+    const div = document.createElement("div");
+    div.className = "windia-msg " + (role === "user" ? "windia-user" : "windia-bot");
+    div.textContent = content;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  async function send(){
+    const value = text.value.trim();
+    if(!value) return;
+
+    addMsg("user", value);
+    text.value = "";
+    sendBtn.disabled = true;
+
+    try {
+      const res = await fetch(WINDIA_WEBHOOK, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          sessionId,
+          chatInput: value
+        })
+      });
+
+      const data = await res.json();
+
+      // Acepta cualquiera de estas claves (según cómo respondas en n8n)
+      const reply = data.message ?? data.reply ?? data.output ?? "No pude responder en este momento.";
+      addMsg("bot", reply);
+    } catch (e) {
+      addMsg("bot", "No pude conectar con el bot. (Posible CORS o webhook caído)");
+    } finally {
+      sendBtn.disabled = false;
+      text.focus();
+    }
+  }
+
+  btn.addEventListener("click", () => {
+    panel.style.display = (panel.style.display === "none" || !panel.style.display) ? "block" : "none";
+    if (panel.style.display === "block" && msgs.childElementCount === 0) {
+      addMsg("bot", "Hola 👋 Soy el asistente de WIND IA. ¿En qué te ayudo?");
+    }
+    text.focus();
+  });
+
+  closeBtn.addEventListener("click", () => panel.style.display = "none");
+  sendBtn.addEventListener("click", send);
+  text.addEventListener("keydown", (e) => { if (e.key === "Enter") send(); });
+</script>
+<!-- /WIND IA Chat Widget -->
 </body>
 </html>
