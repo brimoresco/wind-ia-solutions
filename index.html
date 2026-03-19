@@ -1060,13 +1060,28 @@
   const text = document.getElementById("windia-text");
   const sendBtn = document.getElementById("windia-send");
 
-  function addMsg(role, content){
-    const div = document.createElement("div");
-    div.className = "windia-msg " + (role === "user" ? "windia-user" : "windia-bot");
-    div.textContent = content;
-    msgs.appendChild(div);
-    msgs.scrollTop = msgs.scrollHeight;
-  }
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function formatText(text) {
+  return escapeHtml(text)
+    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // negrita
+    .replace(/\n/g, "<br>"); // saltos de línea
+}
+
+function addMsg(role, content){
+  const div = document.createElement("div");
+  div.className = "windia-msg " + (role === "user" ? "windia-user" : "windia-bot");
+  div.innerHTML = formatText(content); // 👈 CAMBIO CLAVE
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
 
   async function send(){
     const value = text.value.trim();
