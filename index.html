@@ -1088,14 +1088,18 @@
 
       const data = await res.json();
 
-      // Acepta cualquiera de estas claves (según cómo respondas en n8n)
-    const reply = data.text ?? data.message ?? data.reply ?? data.output ?? "No pude responder en este momento.";      const parts = reply.split(/\n\n|\*\*/).filter(p => p.trim() !== "");
-
-parts.forEach((part, i) => {
-  setTimeout(() => {
-    addMsg("bot", part.trim());
-  }, i * 400); // efecto typing
-});
+      const reply = data.text ?? data.message ?? data.reply ?? data.output ?? "No pude responder en este momento.";
+        
+        // 🔥 DIVIDIR EN VARIOS MENSAJES
+       const parts = reply
+          .split(/\n\n|\*\*|\d+\.\s/)
+          .filter(p => p.trim() !== "");
+        
+        parts.forEach((part, i) => {
+          setTimeout(() => {
+            addMsg("bot", part.trim());
+          }, i * 400);
+        });
     } catch (e) {
       addMsg("bot", "No pude conectar con el bot. (Posible CORS o webhook caído)");
     } finally {
