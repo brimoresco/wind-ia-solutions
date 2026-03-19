@@ -1089,8 +1089,7 @@
       const data = await res.json();
 
       // Acepta cualquiera de estas claves (según cómo respondas en n8n)
-      const reply = data.message ?? data.reply ?? data.output ?? "No pude responder en este momento.";
-      addMsg("bot", reply);
+    const reply = data.text ?? data.message ?? data.reply ?? data.output ?? "No pude responder en este momento.";      addMsg("bot", reply);
     } catch (e) {
       addMsg("bot", "No pude conectar con el bot. (Posible CORS o webhook caído)");
     } finally {
