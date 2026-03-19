@@ -1090,16 +1090,22 @@
 
       const reply = data.text ?? data.message ?? data.reply ?? data.output ?? "No pude responder en este momento.";
         
-        // 🔥 DIVIDIR EN VARIOS MENSAJES
-       const parts = reply
-          .split(/\n\n|\*\*|\d+\.\s/)
-          .filter(p => p.trim() !== "");
-        
-        parts.forEach((part, i) => {
-          setTimeout(() => {
-            addMsg("bot", part.trim());
-          }, i * 400);
-        });
+    // Dividir solo por párrafos reales
+    const parts = String(reply)
+      .replace(/\r\n/g, "\n")
+      .split(/\n{2,}/)
+      .map(p => p.trim())
+      .filter(Boolean);
+    
+    if (parts.length <= 1) {
+      addMsg("bot", reply.trim());
+    } else {
+      parts.forEach((part, i) => {
+        setTimeout(() => {
+          addMsg("bot", part);
+        }, i * 350);
+      });
+    }
     } catch (e) {
       addMsg("bot", "No pude conectar con el bot. (Posible CORS o webhook caído)");
     } finally {
