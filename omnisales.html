@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OmniSales — Agente de IA para inmobiliarias | WIND IA</title>
+<meta name="description" content="OmniSales responde WhatsApp, busca propiedades, agenda visitas, actualiza el CRM y genera Lead Score. El agente de IA que trabaja tus leads 24/7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08090c;--bg-2:#0b0d13;--surface:#101319;--surface-2:#151922;
+  --border:rgba(255,255,255,.07);--border-strong:rgba(255,255,255,.12);
+  --text:#f4f6fb;--text-2:#9aa3b6;--text-3:#646d80;
+  --cyan:#00d9ff;--blue:#0066ff;--green:#25d366;
+  --grad:linear-gradient(135deg,#00d9ff,#0066ff);--glow:0 0 60px rgba(0,217,255,.18);--radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.glow-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.glow-bg::before{content:"";position:absolute;top:-300px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(0,217,255,.10),transparent 70%);filter:blur(40px)}
+.glow-bg::after{content:"";position:absolute;bottom:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,102,255,.10),transparent 70%);filter:blur(40px)}
+.content{position:relative;z-index:1}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(14px);background:rgba(8,9,12,.72);border-bottom:1px solid var(--border)}
+.nav-in{max-width:1140px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:1.1rem;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
+.logo-mark{width:26px;height:26px;border-radius:7px;background:var(--grad);box-shadow:var(--glow);display:grid;place-items:center;font-size:14px}
+.nav-links{display:flex;gap:30px;list-style:none;font-size:.92rem}
+.nav-links a{color:var(--text-2);transition:color .2s}.nav-links a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:600;font-size:.95rem;cursor:pointer;transition:all .22s ease;border:1px solid transparent;white-space:nowrap}
+.btn-primary{background:var(--grad);color:#04121f;box-shadow:0 8px 24px rgba(0,217,255,.22)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,217,255,.34)}
+.btn-ghost{background:rgba(255,255,255,.04);color:var(--text);border:1px solid var(--border-strong)}
+.btn-ghost:hover{background:rgba(255,255,255,.08);border-color:var(--cyan)}
+.btn-sm{padding:9px 16px;font-size:.85rem}
+
+/* hero */
+.hero{padding:80px 0 60px;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:var(--cyan);background:rgba(0,217,255,.08);border:1px solid rgba(0,217,255,.2);padding:6px 14px;border-radius:999px;margin-bottom:24px}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(0,217,255,.5)}70%{box-shadow:0 0 0 10px rgba(0,217,255,0)}100%{box-shadow:0 0 0 0 rgba(0,217,255,0)}}
+.hero h1{font-size:3.6rem;line-height:1.06;letter-spacing:-.03em;font-weight:800;max-width:860px;margin:0 auto 22px}
+.hero h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:1.22rem;color:var(--text-2);max-width:620px;margin:0 auto 30px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-wa{background:var(--green);color:#04121f}.btn-wa:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(37,211,102,.3)}
+
+/* device / video */
+.device{max-width:900px;margin:56px auto 0;background:var(--surface);border:1px solid var(--border-strong);border-radius:20px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.55),var(--glow)}
+.device-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--border)}
+.dot{width:11px;height:11px;border-radius:50%}.dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
+.device-title{margin-left:10px;font-size:.8rem;color:var(--text-3)}
+.video-slot{position:relative;aspect-ratio:16/8;background:#0a0c11;display:grid;grid-template-columns:1fr 1fr}
+.video-slot video{width:100%;height:100%;object-fit:cover;grid-column:1/3}
+.wa{background:#0b141a;height:100%;display:flex;flex-direction:column}
+.wa-head{display:flex;align-items:center;gap:11px;padding:12px 15px;background:#1f2c33}
+.wa-av{width:38px;height:38px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-weight:800;color:#04121f;font-size:15px}
+.wa-name{font-weight:700;font-size:.9rem}.wa-status{font-size:.72rem;color:#8fa3ad}
+.wa-body{flex:1;padding:16px;display:flex;flex-direction:column;gap:9px;overflow:hidden}
+.bubble{max-width:80%;padding:9px 13px;border-radius:12px;font-size:.85rem;line-height:1.4;opacity:0;transform:translateY(8px);animation:rise .4s forwards}
+.bubble.in{align-self:flex-start;background:#202c33;border-top-left-radius:3px}
+.bubble.out{align-self:flex-end;background:#005c4b;border-top-right-radius:3px}
+.bubble small{display:block;font-size:.62rem;color:rgba(255,255,255,.45);text-align:right;margin-top:3px}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+.typing{align-self:flex-start;background:#202c33;padding:11px 15px;border-radius:12px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#8fa3ad;animation:blink 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.side{border-left:1px solid var(--border);padding:18px;display:flex;flex-direction:column;gap:12px;background:var(--surface)}
+.side-h{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);font-weight:700}
+.mm-row{display:flex;align-items:center;gap:9px;background:var(--surface-2);border:1px solid var(--border);border-radius:9px;padding:9px 11px;font-size:.78rem;color:var(--text-2)}
+.mm-row .k{width:8px;height:8px;border-radius:50%;background:#25d366;flex-shrink:0}
+.gauge{--v:0;width:104px;height:104px;border-radius:50%;margin:4px auto;background:conic-gradient(var(--cyan) calc(var(--v)*1%),rgba(255,255,255,.07) 0);display:grid;place-items:center;position:relative}
+.gauge::after{content:"";position:absolute;inset:10px;border-radius:50%;background:var(--surface)}
+.gauge b{position:relative;z-index:1;font-size:1.6rem;font-weight:800}.gauge small{position:relative;z-index:1;font-size:.62rem;color:var(--text-3);display:block}
+
+/* sections */
+.sec{padding:90px 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 52px}
+.sec-label{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px}
+.sec-head h2{font-size:2.5rem;letter-spacing:-.03em;font-weight:800;line-height:1.12;margin-bottom:14px}
+.sec-head p{font-size:1.1rem;color:var(--text-2)}
+
+/* benefits */
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ben{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:transform .25s,border-color .25s;opacity:0;transform:translateY(20px)}
+.ben.show{opacity:1;transform:translateY(0)}
+.ben:hover{transform:translateY(-4px);border-color:var(--border-strong)}
+.ben .ic{width:48px;height:48px;border-radius:12px;background:rgba(0,217,255,.1);border:1px solid rgba(0,217,255,.25);display:grid;place-items:center;font-size:22px;margin-bottom:16px}
+.ben h3{font-size:1.18rem;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+.ben p{color:var(--text-2);font-size:.95rem}
+
+/* flow full */
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.step{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 14px;text-align:center;opacity:0;transform:translateY(16px);transition:all .5s ease}
+.step.show{opacity:1;transform:translateY(0)}
+.step .ic{width:44px;height:44px;margin:0 auto 12px;border-radius:12px;background:rgba(0,217,255,.1);border:1px solid rgba(0,217,255,.25);display:grid;place-items:center;font-size:20px}
+.step h4{font-size:.96rem;font-weight:700;margin-bottom:5px}.step p{font-size:.78rem;color:var(--text-3);line-height:1.4}
+.step .num{position:absolute;top:-9px;left:50%;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:var(--grad);color:#04121f;font-size:.72rem;font-weight:800;display:grid;place-items:center}
+
+/* feature rows */
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:70px}
+.frow:nth-child(even) .ftext{order:2}
+.ftext h3{font-size:1.9rem;letter-spacing:-.02em;font-weight:800;margin-bottom:14px}
+.ftext p{color:var(--text-2);font-size:1.05rem;margin-bottom:18px}
+.ftext ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftext li{display:flex;align-items:center;gap:10px;color:var(--text);font-size:.98rem}
+.ftext li::before{content:"✓";color:#04121f;background:var(--cyan);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:.72rem;font-weight:800;flex-shrink:0}
+.fvis{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;min-height:240px;display:flex;flex-direction:column;gap:12px;justify-content:center}
+
+/* FAQ */
+.faq{max-width:760px;margin:0 auto}
+.qa{border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--surface)}
+.qa summary{padding:20px 22px;font-weight:600;font-size:1.05rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";color:var(--cyan);font-size:1.4rem;font-weight:400;transition:transform .2s}
+.qa[open] summary::after{transform:rotate(45deg)}
+.qa p{padding:0 22px 20px;color:var(--text-2);font-size:.98rem}
+
+/* CTA */
+.final{padding:100px 0}
+.final-box{background:linear-gradient(135deg,rgba(0,217,255,.1),rgba(0,102,255,.08));border:1px solid rgba(0,217,255,.22);border-radius:28px;padding:64px 40px;text-align:center;position:relative;overflow:hidden}
+.final-box::before{content:"";position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(circle,rgba(0,217,255,.2),transparent 70%);filter:blur(30px)}
+.final-box h2{font-size:2.6rem;letter-spacing:-.03em;font-weight:800;margin-bottom:16px;position:relative}
+.final-box p{font-size:1.12rem;color:var(--text-2);max-width:520px;margin:0 auto 30px;position:relative}
+.final-box .hero-btns{position:relative}
+
+footer{border-top:1px solid var(--border);padding:44px 0;text-align:center;color:var(--text-3);font-size:.86rem}
+footer a{color:var(--text-2)}footer a:hover{color:var(--cyan)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  .hero h1{font-size:2.5rem}.ben-grid{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,1fr)}
+  .frow{grid-template-columns:1fr;gap:26px}.frow:nth-child(even) .ftext{order:0}
+  .video-slot{grid-template-columns:1fr}.side{border-left:0;border-top:1px solid var(--border)}
+  .nav-links{display:none}.sec-head h2,.final-box h2{font-size:2rem}
+}
+@media(max-width:560px){.hero h1{font-size:2rem}.flow{grid-template-columns:1fr}.hero-btns .btn{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+<div class="glow-bg"></div>
+<div class="content">
+
+<nav>
+  <div class="nav-in">
+    <a href="index.html" class="logo"><span class="logo-mark">◭</span> WIND IA · OmniSales</a>
+    <ul class="nav-links">
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#demo">Demo</a></li>
+      <li><a href="#flujo">Cómo funciona</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="https://wa.me/5493416124787?text=Hola!%20Quiero%20agendar%20una%20demo%20de%20OmniSales" class="btn btn-primary btn-sm">Agendar Demo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="pulse"></span> El agente de IA para inmobiliarias</div>
+    <h1>OmniSales trabaja tus leads <span class="hl">mientras vos vendés</span>.</h1>
+    <p>Responde WhatsApp, busca propiedades, agenda visitas, actualiza el CRM y genera Lead Score. Deriva al asesor solo cuando el lead está listo.</p>
+    <div class="hero-btns">
+      <a href="#demo" class="btn btn-ghost">▷ Ver Demo</a>
+      <a href="https://wa.me/5493416124787?text=Hola!%20Quiero%20agendar%20una%20demo%20de%20OmniSales" class="btn btn-primary">Agendar una Demo</a>
+    </div>
+
+    <!-- VIDEO / MOCKUP -->
+    <div class="device" id="demo">
+      <div class="device-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="device-title">OmniSales · Demo en vivo</span></div>
+      <div class="video-slot">
+        <!-- ▼ REEMPLAZÁ POR TU VIDEO: descomentá y poné tu archivo (ocupa todo el ancho) ▼
+        <video autoplay muted loop playsinline poster="assets/omnisales-poster.jpg">
+          <source src="assets/omnisales-demo.mp4" type="video/mp4">
+        </video>
+        ▲ Mientras tanto se muestra el mockup animado ▲ -->
+        <div class="wa">
+          <div class="wa-head"><div class="wa-av">O</div><div><div class="wa-name">OmniSales</div><div class="wa-status">en línea · escribiendo…</div></div></div>
+          <div class="wa-body" id="waDemo"></div>
+        </div>
+        <div class="side">
+          <div class="side-h">CRM en tiempo real</div>
+          <div class="mm-row"><span class="k"></span> Contacto creado</div>
+          <div class="mm-row"><span class="k"></span> Visita agendada · 18:30</div>
+          <div class="mm-row"><span class="k"></span> Asesor asignado</div>
+          <div class="side-h" style="margin-top:6px">Lead Score</div>
+          <div class="gauge" id="gauge"><b id="gaugeVal">0</b><small>de 100</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="sec" id="beneficios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-label">Beneficios</div>
+      <h2>Menos tareas manuales, más visitas cerradas</h2>
+      <p>OmniSales atiende cada consulta al instante y te entrega el lead listo.</p>
+    </div>
+    <div class="ben-grid">
+      <div class="ben"><div class="ic">⚡</div><h3>Respuesta en segundos</h3><p>Cada lead recibe respuesta al toque, incluso a las 3 AM. Nunca más un cliente esperando.</p></div>
+      <div class="ben"><div class="ic">🏠</div><h3>Busca propiedades solo</h3><p>Entiende qué busca el cliente y le sugiere propiedades que encajan desde tu catálogo.</p></div>
+      <div class="ben"><div class="ic">📅</div><h3>Agenda visitas</h3><p>Coordina día y hora, y crea la visita en la agenda del asesor sin intervención.</p></div>
+      <div class="ben"><div class="ic">📊</div><h3>Actualiza el CRM</h3><p>Carga el contacto, la etapa y todo el historial. Tu CRM siempre al día, solo.</p></div>
+      <div class="ben"><div class="ic">🎯</div><h3>Genera Lead Score</h3><p>Puntúa cada lead por intención y presupuesto para que priorices a los más calientes.</p></div>
+      <div class="ben"><div class="ic">🤝</div><h3>Deriva cuando corresponde</h3><p>Pasa la conversación al asesor humano en el momento justo, con todo el contexto.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLUJO COMPLETO -->
+<section class="sec" id="flujo" style="padding-top:10px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-label">Flujo completo</div>
+      <h2>De un “hola” a una visita agendada</h2>
+      <p>Seis pasos que ocurren automáticamente, en segundos.</p>
+    </div>
+    <div class="flow">
+      <div class="step"><span class="num">1</span><div class="ic">💬</div><h4>Cliente escribe</h4><p>Mensaje por WhatsApp</p></div>
+      <div class="step"><span class="num">2</span><div class="ic">🤖</div><h4>IA responde</h4><p>Al instante</p></div>
+      <div class="step"><span class="num">3</span><div class="ic">🔎</div><h4>Busca propiedad</h4><p>Según lo que pide</p></div>
+      <div class="step"><span class="num">4</span><div class="ic">📅</div><h4>Agenda visita</h4><p>Día y hora</p></div>
+      <div class="step"><span class="num">5</span><div class="ic">📊</div><h4>Actualiza CRM</h4><p>+ Lead Score</p></div>
+      <div class="step"><span class="num">6</span><div class="ic">✅</div><h4>Asesor recibe</h4><p>Listo para cerrar</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE ROWS -->
+<section class="sec" style="padding-top:10px">
+  <div class="wrap">
+
+    <div class="frow reveal">
+      <div class="ftext">
+        <h3>Conversaciones que suenan a tu inmobiliaria</h3>
+        <p>OmniSales responde con el tono de tu marca, entiende el contexto y no repite respuestas robóticas.</p>
+        <ul><li>Responde 24/7 sin costos de guardia</li><li>Entiende zona, presupuesto y tipo de propiedad</li><li>Se integra al WhatsApp que ya usás</li></ul>
+      </div>
+      <div class="fvis">
+        <div style="display:flex;flex-direction:column;gap:9px" id="waFeat"></div>
+      </div>
+    </div>
+
+    <div class="frow reveal">
+      <div class="ftext">
+        <h3>Lead Score y CRM, siempre al día</h3>
+        <p>Cada conversación se convierte en datos: contacto, etapa, score e historial cargados solos en tu CRM.</p>
+        <ul><li>Prioriza los leads más calientes</li><li>Cero carga manual de datos</li><li>Visibilidad total del embudo</li></ul>
+      </div>
+      <div class="fvis">
+        <div class="side-h">Lead Score · Martina G.</div>
+        <div class="gauge" id="gauge2"><b id="gaugeVal2">0</b><small>de 100</small></div>
+        <div class="mm-row"><span class="k"></span> Etapa: Visita agendada</div>
+        <div class="mm-row"><span class="k"></span> Asesor asignado · Lucas</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-label">Preguntas frecuentes</div>
+      <h2>Lo que suelen preguntarnos</h2>
+    </div>
+    <div class="faq">
+      <details class="qa"><summary>¿Se integra con mi WhatsApp actual?</summary><p>Sí. OmniSales trabaja sobre WhatsApp Business y responde desde el número que ya usás, sin cambiar tu operación.</p></details>
+      <details class="qa"><summary>¿Reemplaza a mis asesores?</summary><p>No. OmniSales filtra y prepara los leads. Deriva al asesor humano cuando el cliente está listo, con todo el contexto de la conversación.</p></details>
+      <details class="qa"><summary>¿Con qué CRM funciona?</summary><p>Se integra con los CRMs más usados y con planillas de Google Sheets. En la demo lo conectamos a tu herramienta actual.</p></details>
+      <details class="qa"><summary>¿Cuánto tarda en estar funcionando?</summary><p>Una implementación típica está operativa en pocos días. Cargamos tu catálogo, definimos el tono y lo conectamos a tus canales.</p></details>
+      <details class="qa"><summary>¿Sirve para otros rubros además de inmobiliarias?</summary><p>Sí. La misma arquitectura se adapta a atención al cliente, ventas y automatización de procesos en distintos rubros. Escribinos y lo vemos.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-box reveal">
+      <h2>¿Querés ver cómo funcionaría esto en tu empresa?</h2>
+      <p>Agendá una demo de 20 minutos y te mostramos OmniSales trabajando con un caso real de tu negocio.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5493416124787?text=Hola!%20Quiero%20agendar%20una%20demo%20de%20OmniSales" class="btn btn-primary">Agendar Demo</a>
+        <a href="index.html" class="btn btn-ghost">← Volver al inicio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    OmniSales · un producto de <a href="index.html">WIND IA Solutions</a> — Rosario, Santa Fe 🇦🇷 ·
+    <a href="https://wa.me/5493416124787">+54 9 341 6124787</a>
+  </div>
+</footer>
+
+</div>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const benIo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.ben').forEach((b,i)=>setTimeout(()=>b.classList.add('show'),i*90));benIo.disconnect();}})},{threshold:.2});
+const bg=document.querySelector('.ben-grid');if(bg)benIo.observe(bg);
+
+const flowIo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.step').forEach((s,i)=>setTimeout(()=>s.classList.add('show'),i*130));flowIo.disconnect();}})},{threshold:.3});
+const flowEl=document.querySelector('.flow');if(flowEl)flowIo.observe(flowEl);
+
+function typeChat(el,script,loop){
+  if(!el)return;let i=0;
+  function step(){
+    if(i>=script.length){if(loop){setTimeout(()=>{el.innerHTML='';i=0;step();},2800);}return;}
+    const m=script[i];
+    if(m.who==='typing'){const t=document.createElement('div');t.className='typing';t.innerHTML='<i></i><i></i><i></i>';el.appendChild(t);el.scrollTop=el.scrollHeight;setTimeout(()=>{t.remove();i++;step();},m.d||900);}
+    else{const b=document.createElement('div');b.className='bubble '+m.who;b.innerHTML=m.t+'<small>'+(m.time||'')+'</small>';el.appendChild(b);el.scrollTop=el.scrollHeight;setTimeout(step,m.d||1100);i++;}
+  }step();
+}
+const demoScript=[
+  {who:'in',t:'Hola! Busco un depto en alquiler 🏠',time:'18:02'},
+  {who:'typing',d:700},
+  {who:'out',t:'¡Hola! 😊 ¿Qué zona y cuántos ambientes?',time:'18:02'},
+  {who:'in',t:'Centro, 2 ambientes',time:'18:03'},
+  {who:'typing',d:900},
+  {who:'out',t:'Tengo Córdoba 1450, 2 amb, luminoso. ¿Agendamos visita hoy 18:30?',time:'18:03'},
+  {who:'in',t:'Dale, perfecto',time:'18:04'},
+  {who:'out',t:'✅ Visita confirmada. Te asigné a Lucas 👌',time:'18:04'}
+];
+const featScript=[
+  {who:'in',t:'¿Tenés algo en Pichincha?',time:'12:10'},
+  {who:'typing',d:650},
+  {who:'out',t:'Sí 🙌 Un 2 amb reciclado. ¿Querés fotos?',time:'12:10'},
+  {who:'in',t:'Sí porfa',time:'12:11'},
+  {who:'out',t:'Te las paso y coordino visita 📸',time:'12:11'}
+];
+typeChat(document.getElementById('waDemo'),demoScript,true);
+typeChat(document.getElementById('waFeat'),featScript,true);
+
+function animGauge(gEl,vEl,target){
+  const gio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){let v=0;const t=setInterval(()=>{v++;vEl.textContent=v;gEl.style.setProperty('--v',v);if(v>=target)clearInterval(t);},16);gio.disconnect();}})},{threshold:.4});
+  gio.observe(gEl);
+}
+const g1=document.getElementById('gauge'),g2=document.getElementById('gauge2');
+if(g1)animGauge(g1,document.getElementById('gaugeVal'),87);
+if(g2)animGauge(g2,document.getElementById('gaugeVal2'),87);
+</script>
+</body>
+</html>
