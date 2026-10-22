@@ -1,328 +1,265 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moresco IA — Webs, tiendas online e inteligencia artificial para negocios</title>
-<meta name="description" content="Desarrollo de webs a medida, tiendas online en Tiendanube, campañas en Meta Ads, agentes de IA y automatizaciones para comercios y pymes. Rosario, Argentina.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moresco IA · Desarrollo web, tiendas online, IA y Meta Ads</title>
+<meta name="description" content="Estudio digital en Rosario. Diseñamos y desarrollamos sitios web, tiendas online, agentes de inteligencia artificial, automatizaciones y campañas de Meta Ads para negocios de toda Argentina.">
 <link rel="canonical" href="https://morescoiasolutions.netlify.app/">
+<meta name="theme-color" content="#09090B">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Moresco IA">
-<meta property="og:title" content="Moresco IA — Webs, tiendas online e inteligencia artificial para negocios">
-<meta property="og:description" content="Desarrollo de webs a medida, tiendas online en Tiendanube, campañas en Meta Ads, agentes de IA y automatizaciones para comercios y pymes. Rosario, Argentina.">
-<meta property="og:url" content="https://morescoiasolutions.netlify.app/">
-<meta property="og:image" content="https://morescoiasolutions.netlify.app/assets/og-moresco-ia.jpg">
 <meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Moresco IA · Webs, tiendas online, IA y publicidad que trabajan juntas">
+<meta property="og:description" content="Estudio digital en Rosario: desarrollo web, e-commerce, inteligencia artificial y Meta Ads para negocios que quieren crecer.">
+<meta property="og:url" content="https://morescoiasolutions.netlify.app/">
+<meta property="og:image" content="https://morescoiasolutions.netlify.app/assets/og-moresco-estudio.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/studio.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Moresco IA",
+  "url": "https://morescoiasolutions.netlify.app/",
+  "logo": "https://morescoiasolutions.netlify.app/assets/logo-moresco-ia.svg",
+  "image": "https://morescoiasolutions.netlify.app/assets/og-moresco-estudio.jpg",
+  "description": "Estudio digital: desarrollo web, tiendas online, inteligencia artificial, automatizaciones y Meta Ads para negocios.",
+  "email": "morescoiasolutions@gmail.com",
+  "telephone": "+5493416124787",
+  "founder": { "@type": "Person", "name": "Brisa Moresco" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Rosario", "addressRegion": "Santa Fe", "addressCountry": "AR" },
+  "areaServed": { "@type": "Country", "name": "Argentina" },
+  "sameAs": ["https://www.linkedin.com/company/moresco-ia/", "https://www.linkedin.com/in/brisa-moresco-a96444286/"],
+  "knowsAbout": ["Desarrollo web", "Diseño de páginas web", "Tiendas online", "Tiendanube", "Inteligencia artificial para empresas", "Automatización de procesos", "n8n", "Make", "Meta Ads"]
+}
+</script>
 </head>
 <body>
-<div class="glow-bg"></div>
-<div class="content">
+<a class="skip" href="#contenido">Saltar al contenido</a>
 
-<nav>
-  <div class="nav-in">
-    <a href="index.html" class="logo"><img src="assets/logo-moresco-ia.svg" alt="Moresco IA"></a>
-    <ul class="nav-links">
-      <li><a href="index.html#servicios">Servicios</a></li>
-      <li><a href="index.html#proyectos">Proyectos</a></li>
-      <li><a href="index.html#sobre-mi">Sobre mí</a></li>
-      <li><a href="index.html#contacto">Contacto</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="https://wa.me/5493416124787?text=Hola%20Brisa%21%20Quiero%20contarte%20sobre%20mi%20proyecto" class="btn btn-primary btn-sm">Contame tu proyecto</a>
-      <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
-    </div>
+<header class="site-header" id="top">
+  <div class="wrap header-in">
+    <a href="#top" class="brand" aria-label="Moresco IA, volver al inicio">
+      <img src="assets/logo-moresco-ia.svg" alt="Moresco IA" width="140" height="37">
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <ul id="menu" class="nav-list">
+        <li><a href="#top">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li class="nav-cta-m"><a class="btn btn-solid" href="#contacto">Empezar un proyecto</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-solid nav-cta" href="#contacto">Empezar un proyecto</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+      <span class="sr-only">Abrir menú</span><span class="bars" aria-hidden="true"></span>
+    </button>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html#servicios">Servicios</a>
-    <a href="index.html#proyectos">Proyectos</a>
-    <a href="index.html#sobre-mi">Sobre mí</a>
-    <a href="index.html#contacto">Contacto</a>
-    <a href="https://wa.me/5493416124787?text=Hola%20Brisa%21%20Quiero%20contarte%20sobre%20mi%20proyecto" class="btn btn-primary">Contame tu proyecto</a>
-  </div>
-</nav>
+</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="eyebrow"><span class="pulse"></span> Desarrollo web · E-commerce · IA</div>
-        <h1>Webs, tiendas online y <span class="hl">soluciones con IA</span> para tu negocio.</h1>
-        <p class="hero-sub">Desarrollo sitios y plataformas a medida, tiendas en Tiendanube, campañas en Meta Ads y agentes de IA que atienden por WhatsApp. Todo conectado en un solo sistema.</p>
-        <div class="hero-btns">
-          <a href="https://wa.me/5493416124787?text=Hola%20Brisa%21%20Quiero%20contarte%20sobre%20mi%20proyecto" class="btn btn-primary">Contame tu proyecto</a>
-          <a href="#proyectos" class="btn btn-ghost">Ver proyectos</a>
-        </div>
-        <div class="hero-meta">
-          <div><b>A medida</b><span>Sin plantillas genéricas</span></div>
-          <div><b>Integrado</b><span>Web, publicidad e IA conectadas</span></div>
-          <div><b>Remoto</b><span>Argentina y Latinoamérica</span></div>
+<main id="contenido">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-title" class="display">Webs, tiendas online, IA y publicidad que trabajan juntas.</h1>
+        <p class="lead">Somos un estudio digital de Rosario. Diseñamos e implementamos la parte digital de tu negocio: el sitio, la tienda, las automatizaciones y las campañas, conectados entre sí.</p>
+        <div class="actions">
+          <a class="btn btn-solid" href="#contacto">Hablemos de tu proyecto</a>
+          <a class="btn btn-line" href="#servicios">Explorar servicios</a>
         </div>
       </div>
 
-      <div class="hero-visual hero-stack">
-        <div class="device">
-          <div class="device-bar">
-            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-            <span class="device-title">catalunyavins.com.ar · Web a medida</span>
+      <figure class="orbit" aria-hidden="true">
+        <svg viewBox="0 0 520 520" class="orbit-svg">
+          <defs>
+            <radialGradient id="core" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#A78BFA" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#A78BFA" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle class="core-glow" cx="260" cy="260" r="120" fill="url(#core)"/>
+          <g class="ring r1"><circle cx="190" cy="190" r="135"/><text x="96" y="118">Web</text></g>
+          <g class="ring r2"><circle cx="330" cy="190" r="135"/><text x="352" y="118">E-commerce</text></g>
+          <g class="ring r3"><circle cx="190" cy="330" r="135"/><text x="96" y="420">IA</text></g>
+          <g class="ring r4"><circle cx="330" cy="330" r="135"/><text x="352" y="420">Marketing</text></g>
+          <text class="core-label" x="260" y="266" text-anchor="middle">tu negocio</text>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="section" aria-labelledby="serv-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="serv-title" class="h2">Todo lo que tu negocio necesita para evolucionar.</h2>
+        <p class="muted">Cuatro áreas que se pueden contratar por separado, pero rinden más cuando se piensan juntas.</p>
+      </div>
+
+      <ul class="services">
+        <li class="service" tabindex="0">
+          <h3 class="service-name">Desarrollo web</h3>
+          <div class="service-body">
+            <p>Creamos sitios, plataformas y experiencias digitales modernas, rápidas y adaptadas a cada negocio.</p>
+            <ul class="tags"><li>Sitios web profesionales</li><li>Landing pages</li><li>Desarrollo a medida</li><li>Plataformas digitales</li><li>Sistemas personalizados</li><li>Paneles administrativos</li></ul>
           </div>
-          <img src="assets/proyectos/catalunya-picadas.jpg" alt="Web de Catalunya Vins i Sabors: sección de picadas" width="1440" height="900">
-        </div>
-        <div class="hero-chat" aria-hidden="true">
-          <div class="hc-h"><i></i> WhatsApp · Agente de IA</div>
-          <div class="b in">Hola, ¿hacen envíos hoy?</div>
-          <div class="b out">¡Sí! Te paso las opciones y armamos tu pedido 👇</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STRIP -->
-<div class="strip">
-  <div class="wrap"><div class="strip-in">
-    <span>Trabajo con:</span>
-    <b>🛍️ Tiendanube</b><b>📣 Meta Ads</b><b>💬 WhatsApp</b><b>⚙️ n8n · Make</b><b>🗄️ Supabase</b><b>🧠 OpenAI</b>
-  </div></div>
-</div>
-
-<!-- SERVICIOS -->
-<section class="sec" id="servicios">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-label">Servicios</div>
-      <h2>Todo lo que tu negocio necesita para vender online</h2>
-      <p>Cada servicio funciona solo, pero rinden más cuando se conectan entre sí.</p>
-    </div>
-    <div class="svc-grid">
-      <div class="svc reveal">
-        <div class="ico">🖥️</div>
-        <h3>Desarrollo web a medida</h3>
-        <p>Sitios y plataformas pensados para cómo trabaja tu negocio.</p>
-        <ul><li>Sitios profesionales y catálogos</li><li>Configuradores y sistemas de pedidos</li><li>Paneles para administrar todo sin depender de nadie</li></ul>
-        <div class="proof">Caso: <a href="proyectos/catalunya.html">Catalunya Vins i Sabors →</a></div>
-      </div>
-      <div class="svc reveal">
-        <div class="ico">🛍️</div>
-        <h3>Tiendas online</h3>
-        <p>Implementación y optimización de tiendas en Tiendanube.</p>
-        <ul><li>Catálogo y categorías ordenadas</li><li>Medios de pago y envíos</li><li>Proceso de compra simple desde el celular</li></ul>
-        <div class="proof">Caso: <a href="proyectos/matilda.html">Matilda →</a></div>
-      </div>
-      <div class="svc reveal">
-        <div class="ico">📣</div>
-        <h3>Meta Ads</h3>
-        <p>Campañas en Instagram y Facebook conectadas a tu tienda.</p>
-        <ul><li>Planificación y configuración de campañas</li><li>Seguimiento de conversiones</li><li>Análisis y ajuste de resultados</li></ul>
-        <div class="proof">Caso: <a href="proyectos/matilda.html">Matilda →</a></div>
-      </div>
-      <div class="svc wide reveal">
-        <div class="ico">🤖</div>
-        <h3>Agentes de IA</h3>
-        <p>Agentes que atienden por WhatsApp con el tono de tu marca.</p>
-        <ul><li>Responden consultas a toda hora, entienden audios e imágenes</li><li>Califican a cada cliente y cargan el CRM</li><li>Derivan a una persona cuando hace falta</li></ul>
-        <div class="proof">Producto: <a href="omnisales.html">OmniSales →</a></div>
-      </div>
-      <div class="svc wide reveal">
-        <div class="ico">⚙️</div>
-        <h3>Automatizaciones</h3>
-        <p>Conecto tus herramientas para que dejes de cargar los mismos datos en varios lugares.</p>
-        <ul><li>Flujos con n8n y Make</li><li>Integraciones con CRM, planillas y APIs</li><li>Avisos, seguimientos y reportes automáticos</li></ul>
-        <div class="proof">Producto: <a href="omnisales.html">OmniSales →</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMO SE CONECTAN -->
-<section class="sec" id="sistema" style="padding-top:20px">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-label">Un solo sistema</div>
-      <h2>Cómo se conectan las piezas</h2>
-      <p>La diferencia no está en cada herramienta, sino en que trabajen juntas.</p>
-    </div>
-    <div class="connect reveal">
-      <div class="cn"><div class="bubble-ic">📣</div><h4>Publicidad</h4><p>Meta Ads lleva clientes a tu web o tienda.</p><span class="tagx">Meta Ads</span></div>
-      <div class="cn"><div class="bubble-ic">🛍️</div><h4>Web o tienda</h4><p>El cliente encuentra lo que busca y compra o consulta.</p><span class="tagx">Web · Tiendanube</span></div>
-      <div class="cn"><div class="bubble-ic">🤖</div><h4>Atención con IA</h4><p>Un agente responde por WhatsApp y toma el pedido.</p><span class="tagx">Agentes de IA</span></div>
-      <div class="cn"><div class="bubble-ic">📊</div><h4>Orden y datos</h4><p>Pedidos, CRM y reportes se actualizan solos.</p><span class="tagx">Automatizaciones</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- PROYECTOS -->
-<section class="sec case" id="proyectos">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-label">Proyectos</div>
-      <h2>Trabajos reales, funcionando</h2>
-      <p>Cada proyecto empieza igual: entender cómo trabaja el negocio antes de construir.</p>
-    </div>
-    <div class="proj-grid">
-      <a class="proj reveal" href="proyectos/catalunya.html">
-        <div class="proj-img"><img src="assets/proyectos/catalunya-inicio.jpg" alt="Web de Catalunya Vins i Sabors" loading="lazy"></div>
-        <div class="proj-body">
-          <div class="proj-kind">Web a medida</div>
-          <h3>Catalunya Vins i Sabors</h3>
-          <p>Plataforma para una vinoteca con dos sucursales: venta de picadas, armador de cajas navideñas y panel propio.</p>
-          <div class="tags"><span>Next.js</span><span>Pedidos por WhatsApp</span><span>Panel admin</span></div>
-          <div class="more">Ver proyecto <span>→</span></div>
-        </div>
-      </a>
-      <a class="proj reveal" href="proyectos/matilda.html">
-        <div class="proj-img"><img src="assets/proyectos/matilda-hero.jpg" alt="Matilda, marca de indumentaria femenina" loading="lazy" style="object-position:50% 30%"></div>
-        <div class="proj-body">
-          <div class="proj-kind">Tienda online + Meta Ads</div>
-          <h3>Matilda</h3>
-          <p>Tienda de indumentaria femenina en Tiendanube, con campañas en Instagram y Facebook conectadas a la tienda.</p>
-          <div class="tags"><span>Tiendanube</span><span>Meta Ads</span><span>Catálogo</span></div>
-          <div class="more">Ver proyecto <span>→</span></div>
-        </div>
-      </a>
-      <a class="proj reveal" href="omnisales.html">
-        <div class="proj-img"><img src="assets/proyectos/omnisales-reportes.jpg" alt="Panel de reportes de OmniSales" loading="lazy" style="object-position:left top"></div>
-        <div class="proj-body">
-          <div class="proj-kind">Producto de IA</div>
-          <h3>OmniSales</h3>
-          <p>Plataforma de atención comercial con IA sobre WhatsApp: agentes, CRM, métricas y derivación a operadores.</p>
-          <div class="tags"><span>n8n</span><span>Supabase</span><span>OpenAI</span><span>WhatsApp API</span></div>
-          <div class="more">Ver producto <span>→</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- SOBRE MI -->
-<section class="sec" id="sobre-mi">
-  <div class="wrap">
-    <div class="about">
-      <div class="about-photo reveal">
-        <img src="assets/img/brisa.jpg" alt="Brisa Moresco, fundadora de Moresco IA" loading="lazy">
-        <div class="badge"><b>Brisa Moresco</b>Fundadora · Moresco IA</div>
-      </div>
-      <div class="reveal">
-        <div class="sec-label">Sobre mí</div>
-        <h2>Detrás de Moresco IA</h2>
-        <p>Soy Brisa Moresco, fundadora de Moresco IA y Técnica Universitaria en Inteligencia Artificial (UNR). Desarrollo webs, tiendas online y soluciones con IA para comercios y pymes desde Rosario.</p>
-        <p>Trabajo con un enfoque simple: entender primero cómo funciona tu negocio y después construir lo que necesita, sea una tienda, una plataforma a medida, una campaña o un agente que atienda por WhatsApp. Uso la IA como parte central de mi forma de desarrollar, y eso me permite entregar soluciones a medida en menos tiempo.</p>
-        <div class="facts"><span>📍 Rosario, Argentina</span><span>🎓 Técnica Universitaria en IA · UNR</span><span>🌎 Trabajo remoto</span></div>
-        <div class="hero-btns">
-          <a href="https://www.linkedin.com/in/brisa-moresco-a96444286/" target="_blank" rel="noopener" class="btn btn-ghost">Ver mi LinkedIn</a>
-          <a href="#contacto" class="btn btn-primary">Escribime</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMO TRABAJO -->
-<section class="sec" id="proceso" style="padding-top:20px">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-label">Cómo trabajo</div>
-      <h2>De la primera charla al lanzamiento</h2>
-    </div>
-    <div class="proc">
-      <div class="step reveal"><span class="num">1</span><h4>Entender el negocio</h4><p>Charlamos sobre cómo vendés, cómo atendés y qué te consume tiempo.</p></div>
-      <div class="step reveal"><span class="num">2</span><h4>Propuesta</h4><p>Te digo qué conviene hacer, en qué orden y con qué herramientas.</p></div>
-      <div class="step reveal"><span class="num">3</span><h4>Desarrollo</h4><p>Construyo y te muestro avances para ajustar sobre la marcha.</p></div>
-      <div class="step reveal"><span class="num">4</span><h4>Lanzamiento</h4><p>Lo ponemos en marcha y te dejo todo listo para que lo administres.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACTO -->
-<section class="final" id="contacto">
-  <div class="wrap">
-    <div class="final-box reveal" style="text-align:left">
-      <div class="contact-grid">
-        <div class="contact-side">
-          <div class="sec-label">Contacto</div>
-          <h2>Contame qué querés resolver</h2>
-          <p>Una web, una tienda, publicidad o un agente de IA: te respondo con una propuesta concreta para tu negocio.</p>
-          <div class="contact-list">
-            <a href="https://wa.me/5493416124787?text=Hola%20Brisa%21%20Quiero%20contarte%20sobre%20mi%20proyecto"><span>💬</span><span><b>WhatsApp</b> · +54 9 341 6124787</span></a>
-            <a href="mailto:morescoiasolutions@gmail.com"><span>✉️</span><span><b>Email</b> · morescoiasolutions@gmail.com</span></a>
-            <a href="https://www.linkedin.com/in/brisa-moresco-a96444286/" target="_blank" rel="noopener"><span>in</span><span><b>LinkedIn</b> · Brisa Moresco</span></a>
+        </li>
+        <li class="service" tabindex="0">
+          <h3 class="service-name">E-commerce</h3>
+          <div class="service-body">
+            <p>Desarrollamos tiendas online y soluciones comerciales pensadas para que comprar sea fácil y vender, constante.</p>
+            <ul class="tags"><li>Tiendas online</li><li>Implementación y diseño en Tiendanube</li><li>Pagos y envíos</li><li>Experiencia de compra</li><li>Funcionalidades a medida</li></ul>
           </div>
-        </div>
-        <form class="cform" id="cform">
-          <div class="row2">
-            <label>Tu nombre<input name="nombre" required autocomplete="name"></label>
-            <label>Tu negocio<input name="negocio" autocomplete="organization"></label>
+        </li>
+        <li class="service" tabindex="0">
+          <h3 class="service-name">Inteligencia artificial</h3>
+          <div class="service-body">
+            <p>Implementamos agentes, automatizaciones e integraciones que ordenan procesos y mejoran la atención a tus clientes.</p>
+            <ul class="tags"><li>Agentes de IA</li><li>Chatbots para WhatsApp, Instagram y web</li><li>Automatizaciones con n8n y Make</li><li>Integraciones con APIs</li><li>CRM y automatización comercial</li></ul>
+            <p class="service-link"><a href="omnisales.html">Conocé OmniSales, nuestro sistema de ventas por WhatsApp con IA</a></p>
           </div>
-          <label>¿Qué necesitás?
-            <select name="servicio" required>
-              <option value="Una web a medida">Una web a medida</option>
-              <option value="Una tienda online">Una tienda online</option>
-              <option value="Campañas en Meta Ads">Campañas en Meta Ads</option>
-              <option value="Un agente de IA para WhatsApp">Un agente de IA para WhatsApp</option>
-              <option value="Automatizar procesos">Automatizar procesos</option>
-              <option value="No estoy segura/o, quiero asesoramiento">No estoy segura/o, quiero asesoramiento</option>
-            </select>
-          </label>
-          <label>Contame un poco más<textarea name="mensaje" placeholder="Qué vendés, cómo lo hacés hoy y qué te gustaría mejorar"></textarea></label>
-          <button class="btn btn-primary" type="submit" style="justify-content:center">Enviar por WhatsApp</button>
-          <span class="note">Se abre WhatsApp con tu mensaje listo para enviar.</span>
-        </form>
-      </div>
+        </li>
+        <li class="service" tabindex="0">
+          <h3 class="service-name">Marketing digital</h3>
+          <div class="service-body">
+            <p>Diseñamos y gestionamos campañas en Meta Ads orientadas a generar consultas y ventas, con seguimiento de resultados.</p>
+            <ul class="tags"><li>Meta Ads</li><li>Campañas de captación</li><li>Campañas para tiendas online</li><li>Optimización de anuncios</li><li>Análisis de conversiones</li></ul>
+          </div>
+        </li>
+      </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a href="index.html" class="logo"><img src="assets/logo-moresco-ia.svg" alt="Moresco IA"></a>
-        <p>Webs, tiendas online, Meta Ads, agentes de IA y automatizaciones para comercios y pymes.</p>
-      </div>
-      <div class="foot-col">
-        <h5>Servicios</h5>
-        <a href="index.html#servicios">Desarrollo web a medida</a>
-        <a href="index.html#servicios">Tiendas online</a>
-        <a href="index.html#servicios">Meta Ads</a>
-        <a href="index.html#servicios">Agentes de IA y automatizaciones</a>
-      </div>
-      <div class="foot-col">
-        <h5>Proyectos</h5>
-        <a href="proyectos/catalunya.html">Catalunya Vins i Sabors</a>
-        <a href="proyectos/matilda.html">Matilda</a>
-        <a href="omnisales.html">OmniSales</a>
-      </div>
-      <div class="foot-col">
-        <h5>Contacto</h5>
-        <a href="mailto:morescoiasolutions@gmail.com">morescoiasolutions@gmail.com</a>
-        <a href="https://wa.me/5493416124787">+54 9 341 6124787</a>
-        <a href="https://www.linkedin.com/in/brisa-moresco-a96444286/" target="_blank" rel="noopener">LinkedIn · Brisa Moresco</a>
-        <a href="index.html#contacto">Rosario, Santa Fe · Remoto</a>
+  <!-- PROPUESTA DE VALOR -->
+  <section class="section statement" aria-labelledby="value-title">
+    <div class="wrap statement-grid">
+      <h2 id="value-title" class="statement-title">Tu negocio es único. Tu solución digital también debería serlo.</h2>
+      <div class="statement-text">
+        <p>No trabajamos con paquetes cerrados. Primero entendemos cómo vendés, cómo atendés y qué te está frenando; después combinamos estrategia, diseño y tecnología para construir la herramienta que necesitás.</p>
+        <p>Una web que no recibe visitas no vende, y una campaña que lleva a una tienda desordenada tampoco. Por eso miramos el recorrido completo.</p>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 Moresco IA. Todos los derechos reservados.</span>
-      <span>Hecho en Rosario 🇦🇷</span>
+  </section>
+
+  <!-- QUÉ PODEMOS CONSTRUIR -->
+  <section class="section build" aria-labelledby="build-title">
+    <div class="wrap">
+      <h2 id="build-title" class="h2 build-title">Qué podemos construir</h2>
+      <p class="build-sentence">
+        Una <span class="cap" data-area="Web">plataforma web a medida</span>,
+        una <span class="cap" data-area="E-commerce">tienda online</span>
+        que se administra sola, un <span class="cap" data-area="Web">sistema de gestión</span>
+        para tu equipo, un <span class="cap" data-area="IA">agente comercial con IA</span>
+        que responde en WhatsApp, <span class="cap" data-area="IA">automatizaciones</span>
+        que eliminan tareas repetidas, <span class="cap" data-area="IA">integraciones</span>
+        entre las herramientas que ya usás, <span class="cap" data-area="Web">experiencias digitales</span>
+        que se recuerdan y una <span class="cap" data-area="Marketing">estrategia de adquisición</span>
+        que trae clientes nuevos.
+      </p>
+      <ul class="legend" aria-label="Referencias de color">
+        <li data-area="Web">Web</li><li data-area="E-commerce">E-commerce</li><li data-area="IA">IA</li><li data-area="Marketing">Marketing</li>
+      </ul>
     </div>
+  </section>
+
+  <!-- METODOLOGÍA -->
+  <section class="section" aria-labelledby="method-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="method-title" class="h2">De la idea a la implementación.</h2>
+      </div>
+      <ol class="steps">
+        <li class="step"><span class="step-n">01</span><h3>Descubrimiento</h3><p>Entendemos el negocio, sus necesidades y sus objetivos.</p></li>
+        <li class="step"><span class="step-n">02</span><h3>Estrategia</h3><p>Definimos la solución más adecuada y lo que va a resolver.</p></li>
+        <li class="step"><span class="step-n">03</span><h3>Desarrollo</h3><p>Diseñamos, construimos e implementamos, con avances que podés ver.</p></li>
+        <li class="step"><span class="step-n">04</span><h3>Evolución</h3><p>Medimos, optimizamos y acompañamos el crecimiento.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" class="section about" aria-labelledby="about-title">
+    <div class="wrap about-grid">
+      <h2 id="about-title" class="h2">Nosotros</h2>
+      <div class="about-text">
+        <p class="about-lead">Moresco IA nace de la combinación entre tecnología, inteligencia artificial y visión de negocio.</p>
+        <p>Es un estudio digital de Rosario fundado por Brisa Moresco, desarrolladora especializada en inteligencia artificial, desarrollo de soluciones digitales y automatización de procesos. Hoy desarrollamos proyectos que integran diseño, desarrollo, automatización y marketing.</p>
+        <p>Trabajamos con emprendedores, pymes y empresas de todo el país. Hablás directamente con quien diseña y construye tu proyecto, sin intermediarios.</p>
+        <p class="about-links"><a href="https://www.linkedin.com/in/brisa-moresco-a96444286/" target="_blank" rel="noopener">Brisa en LinkedIn</a> <a href="https://www.linkedin.com/company/moresco-ia/" target="_blank" rel="noopener">Moresco IA en LinkedIn</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div>
+        <h2 id="contact-title" class="display contact-title">Tu próxima gran idea empieza acá.</h2>
+        <p class="lead">Contanos qué necesitás y te ayudamos a convertirlo en una solución digital. Respondemos por WhatsApp o por email.</p>
+        <ul class="channels">
+          <li><a href="https://wa.me/5493416124787?text=Hola%20Moresco%20IA%2C%20quiero%20contarles%20sobre%20mi%20proyecto" target="_blank" rel="noopener"><span>WhatsApp</span>+54 9 341 612-4787</a></li>
+          <li><a href="mailto:morescoiasolutions@gmail.com"><span>Email</span>morescoiasolutions@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <form id="contact-form" class="form" novalidate>
+        <div class="field">
+          <label for="f-nombre">Tu nombre</label>
+          <input id="f-nombre" name="nombre" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-negocio">Negocio o empresa <span class="opt">(opcional)</span></label>
+          <input id="f-negocio" name="negocio" type="text" autocomplete="organization">
+        </div>
+        <fieldset class="field">
+          <legend>¿Qué necesitás?</legend>
+          <div class="chips">
+            <label><input type="checkbox" name="servicio" value="Desarrollo web"><span>Desarrollo web</span></label>
+            <label><input type="checkbox" name="servicio" value="E-commerce"><span>E-commerce</span></label>
+            <label><input type="checkbox" name="servicio" value="Inteligencia artificial"><span>Inteligencia artificial</span></label>
+            <label><input type="checkbox" name="servicio" value="Marketing digital"><span>Marketing digital</span></label>
+            <label><input type="checkbox" name="servicio" value="Todavía no lo sé"><span>Todavía no lo sé</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="f-mensaje">Contanos sobre tu proyecto</label>
+          <textarea id="f-mensaje" name="mensaje" rows="4"></textarea>
+        </div>
+        <p class="form-error" id="form-error" role="alert" hidden>Escribí tu nombre para poder enviar el mensaje.</p>
+        <button class="btn btn-solid btn-wide" type="submit">Hablemos de tu proyecto</button>
+        <p class="form-note">Al enviar se abre WhatsApp con tu mensaje listo.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-in">
+    <img src="assets/logo-moresco-ia.svg" alt="Moresco IA" width="120" height="32" loading="lazy">
+    <p>Estudio digital en Rosario, Argentina.</p>
+    <nav aria-label="Pie de página">
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+      <a href="omnisales.html">OmniSales</a>
+    </nav>
+    <p class="copy">© <span id="year">2026</span> Moresco IA</p>
   </div>
 </footer>
 
-</div>
-<script>
-function toggleMenu(b){const m=document.getElementById('mobileMenu');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'☰';}
-document.querySelectorAll('#mobileMenu a').forEach(a=>a.addEventListener('click',()=>{const m=document.getElementById('mobileMenu');m.classList.remove('open');const b=document.querySelector('.menu-btn');if(b){b.textContent='☰';b.setAttribute('aria-expanded','false');}}));
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-const f=document.getElementById('cform');
-if(f){f.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(f);
-  const t=`Hola Brisa! Soy ${d.get('nombre')}`+(d.get('negocio')?` de ${d.get('negocio')}`:'')+`.\nMe interesa: ${d.get('servicio')}.\n${d.get('mensaje')||''}`;
-  window.open('https://wa.me/5493416124787?text='+encodeURIComponent(t),'_blank');});}
-</script>
+<script src="assets/studio.js" defer></script>
 </body>
 </html>

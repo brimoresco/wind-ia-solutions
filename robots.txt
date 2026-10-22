@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://morescoiasolutions.netlify.app/sitemap.xml
