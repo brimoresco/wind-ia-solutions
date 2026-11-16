@@ -1,0 +1,3 @@
+# Configuración de Netlify. La carpeta que se publica es esta misma (sitio/).
+[build]
+  publish = "."
